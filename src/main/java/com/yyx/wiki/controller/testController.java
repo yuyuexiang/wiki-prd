@@ -1,6 +1,7 @@
 package com.yyx.wiki.controller;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @ClassName: testController
@@ -12,10 +13,14 @@ import org.springframework.web.bind.annotation.*;
 public class testController {
 
 //    @GetMapping("/demo") //只支持get请求，如果不是get请求访问此接口，报405错
-    @RequestMapping("/demo")
+    @PostMapping("/demo")
     public String demo() {
 
             return "Hellor World!";
+        }
+    @PostMapping("/postTest")
+    public String demoTest(String name) {
+            return "Hellor World!"+name;
         }
 }
 
