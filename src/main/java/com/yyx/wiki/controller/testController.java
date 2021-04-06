@@ -1,5 +1,6 @@
 package com.yyx.wiki.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,14 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: yuyuexiang
  * @date: 2021/4/3 17:47
  */
-@RestController //前后端分离，接口只返回字符串给前端
+@RestController
 public class testController {
 
-//    @GetMapping("/demo") //只支持get请求，如果不是get请求访问此接口，报405错
+    @Value("${test.name:111}")
+    private String perName;
+
     @PostMapping("/demo")
     public String demo() {
 
-            return "Hellor World!";
+            return "Hellor World!"+perName;
         }
     @PostMapping("/postTest")
     public String demoTest(String name) {
